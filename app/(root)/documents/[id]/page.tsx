@@ -15,7 +15,6 @@ const Document = async ({ params: { id } }: SearchParamProps) => {
 
   if (!room) redirect("/");
 
-  //TODO: Assess the permissions of the user to access the document
   const userIds = Object.keys(room.usersAccesses);
   const users = await getClerkUsers({ userIds });
 
@@ -25,9 +24,10 @@ const Document = async ({ params: { id } }: SearchParamProps) => {
       ? "editor"
       : "viewer",
   }));
+
   const currentUserType = room.usersAccesses[
     clerkUser.emailAddresses[0].emailAddress
-  ]?.includes("room.write")
+  ]?.includes("room:write")
     ? "editor"
     : "viewer";
 

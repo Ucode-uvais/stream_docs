@@ -19,11 +19,13 @@ const ThreadWrapper = ({ thread }: ThreadWrapperProps) => {
     />
   );
 };
+
 const Comments = () => {
   const { threads } = useThreads();
+
   return (
     <div className="comments-container">
-      <Composer className="comment-comnposer" />
+      <Composer className="comment-composer" />
 
       {threads.map((thread) => (
         <ThreadWrapper key={thread.id} thread={thread} />

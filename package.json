@@ -11,22 +11,32 @@
   "dependencies": {
     "@clerk/nextjs": "^5.4.1",
     "@clerk/themes": "^2.1.27",
+    "@eslint/config-array": "^0.18.0",
+    "@eslint/object-schema": "^2.1.4",
     "@lexical/react": "^0.16.1",
-    "@liveblocks/client": "^2.6.0",
-    "@liveblocks/node": "^2.6.0",
-    "@liveblocks/react": "^2.6.0",
+    "@liveblocks/client": "^2.6.1",
+    "@liveblocks/node": "^2.6.1",
+    "@liveblocks/react": "^2.6.1",
     "@liveblocks/react-lexical": "^2.6.1",
-    "@liveblocks/react-ui": "^2.6.0",
+    "@liveblocks/react-ui": "^2.6.1",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-popover": "^1.1.1",
+    "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@sentry/nextjs": "^8.30.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "glob": "^11.0.0",
+    "inflight": "^1.0.6",
     "jsm-editor": "^0.0.12",
     "lexical": "^0.16.1",
     "lucide-react": "^0.439.0",
     "nanoid": "^5.0.7",
-    "next": "14.2.8",
+    "next": "^14.2.9",
     "react": "^18",
     "react-dom": "^18",
+    "rimraf": "^6.0.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -39,5 +49,8 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "peerDependencies": {
+    "@liveblocks/core": "^2.6.1"
   }
 }

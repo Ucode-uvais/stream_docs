@@ -18,9 +18,13 @@ const Provider = ({ children }: { children: ReactNode }) => {
         return users;
       }}
       resolveMentionSuggestions={async ({ text, roomId }) => {
+        if (!clerkUser || !clerkUser.emailAddresses[0]?.emailAddress) {
+          return []; // Handle the undefined case
+        }
+
         const roomUsers = await getDocumentUsers({
           roomId,
-          currentUser: clerkUser?.emailAddresses[0].emailAddress!,
+          currentUser: clerkUser.emailAddresses[0].emailAddress,
           text,
         });
         return roomUsers;

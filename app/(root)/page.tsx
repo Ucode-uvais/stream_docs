@@ -2,7 +2,6 @@ import AddDocumentBtn from "@/components/AddDocumentBtn";
 import { DeleteModal } from "@/components/DeleteModal";
 import Header from "@/components/Header";
 import Notifications from "@/components/Notifications";
-import { Button } from "@/components/ui/button";
 import { getDocuments } from "@/lib/actions/room.actions";
 import { dateConverter } from "@/lib/utils";
 import { SignedIn, UserButton } from "@clerk/nextjs";
@@ -10,6 +9,14 @@ import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+
+interface Document {
+  id: string;
+  metadata: {
+    title: string;
+  };
+  createdAt: string; // or Date if you want to work with Date objects
+}
 
 const Home = async () => {
   const clerkUser = await currentUser();
@@ -40,7 +47,7 @@ const Home = async () => {
             />
           </div>
           <ul className="document-ul">
-            {roomDocuments.data.map(({ id, metadata, createdAt }: any) => (
+            {roomDocuments.data.map(({ id, metadata, createdAt }: Document) => (
               <li key={id} className="document-list-item">
                 <Link
                   href={`/documents/${id}`}
